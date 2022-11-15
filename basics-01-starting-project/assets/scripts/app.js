@@ -23,53 +23,70 @@ function writeToLog(
     operation: operationIdentifier,
     prevResult: prevResult,
     number: operationNumber,
-    result: newResult
+    result: newResult,
   };
   logEntries.push(logEntry);
   console.log(logEntry.operation);
   console.log(logEntries);
 }
 
-function calculateResult(calculationType){
+function calculateResult(calculationType) {
+  if (
+    calculationType !== 'ADD' &&
+    calculationType !== 'SUBTRACT' &&
+    calculationType !== 'MULTIPLY' &&
+    calculationType !== 'DIVIDE'
+  ) {
+    return;
+  }
+
+  // if (
+  //   calculationType === 'ADD' || 
+  //   calculationType === 'SUBTRACT' ||
+  //   calculationType === 'MULTIPLY' ||
+  //   calculationType === 'DIVIDE'
+  //   )  {
+
+  // }
+
   const enteredNumber = getUserNumberInput();
   const initialResult = currentResult;
   let mathOperator;
-  if (calculationType === 'ADD') {
+  if (calculationType === "ADD") {
     currentResult += enteredNumber;
-    mathOperator = '+';
-  } else if (calculationType === 'SUBTRACT') {
+    mathOperator = "+";
+  } else if (calculationType === "SUBTRACT") {
     currentResult -= enteredNumber;
-    mathOperator = '-';
-  } else if (calculationType === 'MULTIPLY') {
+    mathOperator = "-";
+  } else if (calculationType === "MULTIPLY") {
     currentResult *= enteredNumber;
-    mathOperator = '*';
-  } else if (calculationType === 'DIVIDE') {
+    mathOperator = "*";
+  } else if (calculationType === "DIVIDE") {
     currentResult /= enteredNumber;
-    mathOperator =  '/';
+    mathOperator = "/";
   }
- 
   createAndWriteLog(mathOperator, initialResult, enteredNumber);
   writeToLog(calculationType, initialResult, enteredNumber, currentResult);
 }
 
 // Adds two numbers together
 function add() {
-  calculateResult('ADD');
+  calculateResult("ADD");
 }
 
 // Subtracts two numbers
 function subtract() {
-  calculateResult('SUBTRACT');
+  calculateResult("SUBTRACT");
 }
 
 // Multiplies two numbers
 function multiply() {
-  calculateResult('MULTIPLY');
+  calculateResult("MULTIPLY");
 }
 
 // Divides two numbers
 function divide() {
-  calculateResult('DIVIDE');
+  calculateResult("DIVIDE");
 }
 
 // Initializing vendor.js functions to interact with the page
