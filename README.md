@@ -10,3 +10,6 @@
 * `undefined` declared vars where values are not assigned yed
 * `null` is something that can be set
 * `NaN` Not a Number
+
+## Operators
+[MDN - Operator precedence](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
