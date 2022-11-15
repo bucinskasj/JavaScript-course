@@ -13,21 +13,30 @@ function createAndWriteLog(operator, resultBeforeCalc, calcNumber) {
   outputResult(currentResult, calcDecription); // from vendor.js file
 }
 
+function writeToLog(
+  operationIdentifier,
+  prevResult,
+  operationNumber,
+  newResult
+) {
+  const logEntry = {
+    operation: operationIdentifier,
+    prevResult: prevResult,
+    number: operationNumber,
+    result: newResult
+  };
+  logEntries.push(logEntry);
+  console.log(logEntry.operation);
+  console.log(logEntries);
+}
+
 // Adds two numbers together
 function add() {
   const enteredNumber = getUserNumberInput();
   const initialResult = currentResult;
   currentResult += enteredNumber;
   createAndWriteLog("+", initialResult, enteredNumber);
-  const logEntry = {
-    operation: 'ADD',
-    prevResult: initialResult,
-    number: enteredNumber,
-    result: currentResult
-  };
-  logEntries.push(logEntry);
-  console.log(logEntry.operation);
-  console.log(logEntries);
+  writeToLog('ADD', initialResult, enteredNumber, currentResult);
 }
 
 // Subtracts two numbers
@@ -36,22 +45,25 @@ function subtract() {
   const initialResult = currentResult;
   currentResult -= enteredNumber;
   createAndWriteLog("-", initialResult, enteredNumber);
+  writeToLog('SUBTRACT', initialResult, enteredNumber, currentResult);
 }
 
 // Multiplies two numbers
 function multiply() {
   const enteredNumber = getUserNumberInput();
   const initialResult = currentResult;
-  currentResult *=enteredNumber;
+  currentResult *= enteredNumber;
   createAndWriteLog("*", initialResult, enteredNumber);
+  writeToLog('MULTIPLY', initialResult, enteredNumber, currentResult);
 }
 
 // Divides two numbers
 function divide() {
   const enteredNumber = getUserNumberInput();
   const initialResult = currentResult;
-  currentResult /=enteredNumber;
+  currentResult /= enteredNumber;
   createAndWriteLog("/", initialResult, enteredNumber);
+  writeToLog('DIVIDE', initialResult, enteredNumber, currentResult);
 }
 
 // Initializing vendor.js functions to interact with the page
