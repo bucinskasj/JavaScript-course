@@ -10,7 +10,7 @@ const RESULT_COMPUTER_WON = "COMPUTER_WON";
 
 let gameIsRunning = false;
 
-const getPlayerChoice = function () {
+const getPlayerChoice = () => {
   const selection = prompt(`${ROCK}, ${PAPER}, ${SCISSORS}?`, "").toUpperCase();
   if (selection !== ROCK && selection !== PAPER && selection !== SCISSORS) {
     alert(`Invalid choice! We chose ${DEFAULT_USER_CHOISE} for you!`);
@@ -19,7 +19,7 @@ const getPlayerChoice = function () {
   return selection;
 };
 
-const getComputerChoice = function () {
+const getComputerChoice = () => {
   const randomValue = Math.random();
   if (randomValue < 0.34) {
     return ROCK;
@@ -30,21 +30,28 @@ const getComputerChoice = function () {
   }
 };
 
-const getWinner = function (cChoice, pChoice) {
-  if (cChoice === pChoice) {
-    return RESULT_DRAW;
-  } else if (
-    cChoice === ROCK && pChoice === PAPER ||
-    cChoice === PAPER && pChoice === SCISSORS ||
-    cChoice === SCISSORS && pChoice === ROCK
-  ) {
-    return RESULT_PLAYER_WON;
-  } else {
-    return RESULT_COMPUTER_WON;
-  }
-};
+const getWinner = (cChoice, pChoice) =>
+  cChoice === pChoice
+    ? RESULT_DRAW
+    : (cChoice === ROCK && pChoice === PAPER) ||
+      (cChoice === PAPER && pChoice === SCISSORS) ||
+      (cChoice === SCISSORS && pChoice === ROCK)
+    ? RESULT_PLAYER_WON
+    : RESULT_COMPUTER_WON;
 
-startGameBtn.addEventListener("click", function () {
+// if (cChoice === pChoice) {
+//   return RESULT_DRAW;
+// } else if (
+//   cChoice === ROCK && pChoice === PAPER ||
+//   cChoice === PAPER && pChoice === SCISSORS ||
+//   cChoice === SCISSORS && pChoice === ROCK
+// ) {
+//   return RESULT_PLAYER_WON;
+// } else {
+//   return RESULT_COMPUTER_WON;
+// }
+
+startGameBtn.addEventListener("click", () => {
   if (gameIsRunning) {
     return;
   }
