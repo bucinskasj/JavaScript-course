@@ -229,14 +229,25 @@ function printLogHandler() {
   for (let i = 0; i< 3; i++){
     console.log('--------');
   }
-
-
   // Do while loop example 
   let j = 0
   do {
     console.log(j);
     j++;
   } while (j<3);
+
+  // Example of labeled statements
+  // let j = 0
+  // outerWhile: do {
+  //   console.log('Outer', j);
+  //   innerFor: for(let k = 0; k < 5; k++) {
+  //     if (k === 3){
+  //       break outerWhile;
+  //     }
+  //     console.log('Inner', k);
+  //   }
+  //   j++;
+  // } while (j<3);
 
   // let j = 0;
   // while (j < 3){
