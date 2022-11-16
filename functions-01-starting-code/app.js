@@ -1,11 +1,8 @@
 const startGameBtn = document.getElementById('start-game-btn');
 
-//Anonymous function as an expression
-const start = function() {
-  console.log('Game is starting...');
-};
-
-startGameBtn.addEventListener('click', start);
+startGameBtn.addEventListener('click', function(){
+  console.log('Games is starting...');
+});
 
 
 
@@ -28,3 +25,8 @@ startGameBtn.addEventListener('click', start);
 // person.greet();
 
 //console.dir(startGame);
+
+//Anonymous function as an expression
+// const start = function() {
+//   console.log('Game is starting...');
+// };
