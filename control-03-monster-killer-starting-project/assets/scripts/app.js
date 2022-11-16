@@ -34,7 +34,7 @@ function writeToLog(event, value, monsterHealth, playerHealth) {
       value: value,
       target: "MONSTER",
       finalMonsterHealth: monsterHealth,
-      finalPlayerHealth: playerHealth
+      finalPlayerHealth: playerHealth,
     };
   } else if (event === LOG_EVENT_PLAYER_STRONG_ATTACK) {
     logEntry = {
@@ -42,7 +42,7 @@ function writeToLog(event, value, monsterHealth, playerHealth) {
       value: value,
       target: "MONSTER",
       finalMonsterHealth: monsterHealth,
-      finalPlayerHealth: playerHealth
+      finalPlayerHealth: playerHealth,
     };
   } else if (event === LOG_EVENT_MONSTER_ATTACK) {
     logEntry = {
@@ -50,7 +50,7 @@ function writeToLog(event, value, monsterHealth, playerHealth) {
       value: value,
       target: "PLAYER",
       finalMonsterHealth: monsterHealth,
-      finalPlayerHealth: playerHealth
+      finalPlayerHealth: playerHealth,
     };
   } else if (event === LOG_EVENT_PLAYER_HEAL) {
     logEntry = {
@@ -58,14 +58,14 @@ function writeToLog(event, value, monsterHealth, playerHealth) {
       value: value,
       target: "PLAYER",
       finalMonsterHealth: monsterHealth,
-      finalPlayerHealth: playerHealth
+      finalPlayerHealth: playerHealth,
     };
   } else if (event === LOG_EVENT_GAME_OVER) {
     logEntry = {
       event: event,
       value: value,
       finalMonsterHealth: monsterHealth,
-      finalPlayerHealth: playerHealth
+      finalPlayerHealth: playerHealth,
     };
   }
   battleLog.push(logEntry);
@@ -100,7 +100,7 @@ function endRound() {
     alert("You won!");
     writeToLog(
       LOG_EVENT_GAME_OVER,
-      'PLAYER_WON',
+      "PLAYER_WON",
       currentMonsterHealth,
       curretPlayerHealth
     );
@@ -109,7 +109,7 @@ function endRound() {
     alert("You lost!");
     writeToLog(
       LOG_EVENT_GAME_OVER,
-      'MONSTER WON',
+      "MONSTER WON",
       currentMonsterHealth,
       curretPlayerHealth
     );
@@ -118,7 +118,7 @@ function endRound() {
     alert("You have a draw!");
     writeToLog(
       LOG_EVENT_GAME_OVER,
-      'A DRAW',
+      "A DRAW",
       currentMonsterHealth,
       curretPlayerHealth
     );
@@ -127,23 +127,23 @@ function endRound() {
 }
 
 function attackMonster(mode) {
-  let maxDamage;
-  let logEvent;
-  if (mode === MODE_ATTACK) {
-    maxDamage = ATTACK_VALUE;
-    logEvent = LOG_EVENT_PLAYER_ATTACK;
-  } else if (mode === MODE_STRONG_ATTACK) {
-    maxDamage = STRONG_ATTACK_VALUE;
-    logEvent = LOG_EVENT_PLAYER_STRONG_ATTACK
-  }
+  const maxDamage = mode === MODE_ATTACK ? ATTACK_VALUE : STRONG_ATTACK_VALUE;
+  const logEvent =
+    mode === MODE_ATTACK
+      ? LOG_EVENT_PLAYER_ATTACK
+      : LOG_EVENT_PLAYER_STRONG_ATTACK;
+  // The above constants use Ternany operators to get rid of the
+  // below if statement
+  // if (mode === MODE_ATTACK) {
+  //   maxDamage = ATTACK_VALUE;
+  //   logEvent = LOG_EVENT_PLAYER_ATTACK;
+  // } else if (mode === MODE_STRONG_ATTACK) {
+  //   maxDamage = STRONG_ATTACK_VALUE;
+  //   logEvent = LOG_EVENT_PLAYER_STRONG_ATTACK
+  // }
   const damage = dealMonsterDamage(maxDamage);
   currentMonsterHealth -= damage;
-  writeToLog(
-    logEvent,
-    damage,
-    currentMonsterHealth,
-    curretPlayerHealth
-  );
+  writeToLog(logEvent, damage, currentMonsterHealth, curretPlayerHealth);
   endRound();
 }
 
