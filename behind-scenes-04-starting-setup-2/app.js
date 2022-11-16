@@ -19,7 +19,7 @@ function printMessage() {
   console.log(value || 'Clicked me!');
 }
 
-// won't be cleaned by GC
+// won't be cleaned by GC - anonymous function
 function addListener() {
   clickableBtn.addEventListener('click', function () {
     const value = messageInput.value;
