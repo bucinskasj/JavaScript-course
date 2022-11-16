@@ -21,8 +21,16 @@ greet();
 
 
 // This kind of block is legal too
+// test variable won't be available outside of scope
 
 {
   let test = 5;
   console.log(test);
 }
+
+/////////////////Lecture 114///////////////////
+
+// Hoisting example, Let and const forces you to delclare vars before using them
+let userName = 'Max';
+
+console.log(userName);
