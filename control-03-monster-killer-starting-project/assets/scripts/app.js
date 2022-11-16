@@ -224,11 +224,26 @@ function healPlayerHandler() {
 }
 
 function printLogHandler() {
+  //Regular for loop with incrementing iteration values
   for (let i = 0; i< 3; i++){
     console.log('--------');
   }
 
-  // For loop with decrementing values
+
+  // Do while loop example 
+  let j = 0
+  do {
+    console.log(j);
+    j++;
+  } while (j<3);
+
+  // let j = 0;
+  // while (j < 3){
+  //   console.log(`---------`);
+  //   j++;
+  // }
+
+  // For loop with decrementing iteration values
   // for(let i = 10; i > 0;){
   //   i--;
   //   console.log(i);
