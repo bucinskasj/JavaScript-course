@@ -36,5 +36,5 @@ button.addEventListener('click', () => {
 // const listItemElements = document.getElementsByTagName('li');
 
 // for (const listItemEl of listItemElements){
-//   console.dir(listItemEl);
-// }
+  //   console.dir(listItemEl);
+  // }
