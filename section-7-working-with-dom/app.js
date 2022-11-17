@@ -3,6 +3,23 @@ const firstLi = ul.firstElementChild;
 
 console.log(firstLi);
 
+const section = document.querySelector('section');
+const button  = document.querySelector('button');
+section.className = '';
+
+button.addEventListener('click', () => {
+  // if (section.className === 'red-bg visible'){
+  //   section.className = 'red-bg invisible';
+  // } else {
+  //   section.className = 'red-bg visible';
+  // }
+
+  // section.classList.toggle('visible');
+  section.classList.toggle('invisible');
+});
+
+// section.style.backgroundColor = 'blue';
+
 // const h1 = document.getElementById('main-title');
 
 // h1.textContent = 'Some new content';
