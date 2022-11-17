@@ -60,18 +60,20 @@ startGameBtn.addEventListener("click", () => {
   const playerSelection = getPlayerChoice();
   const computerChoice = getComputerChoice();
   let winner;
-  if (playerSelection){
+  if (playerSelection) {
     winner = getWinner(computerChoice, playerSelection);
   } else {
     winner = getWinner(computerChoice);
   }
-  let message = `You picked ${playerSelection || DEFAULT_USER_CHOISE}, computer picked ${computerChoice}, therefore you `;
-  if (winner === RESULT_DRAW){
-    message = message + 'had a draw';
-  } else if (winner === RESULT_PLAYER_WON){
-    message = message + 'won.';
+  let message = `You picked ${
+    playerSelection || DEFAULT_USER_CHOISE
+  }, computer picked ${computerChoice}, therefore you `;
+  if (winner === RESULT_DRAW) {
+    message = message + "had a draw";
+  } else if (winner === RESULT_PLAYER_WON) {
+    message = message + "won.";
   } else {
-    message = message + 'lost.';
+    message = message + "lost.";
   }
   alert(message);
   gameIsRunning = false;
@@ -94,39 +96,68 @@ startGameBtn.addEventListener("click", () => {
 //   console.log('Game is starting...');
 // };
 
-
 //not related to the game
-
 
 //Rest operator example
 //With a function within a function
 //With a callback
-const sumUp = (resultHandler, ...numbers) => {
+const combine = (resultHandler, operation, ...numbers) => {
   const validateNumber = (number) => {
     return isNaN(number) ? 0 : number;
-  }
+  };
 
   let sum = 0;
-  for (const num of numbers){
-    sum += validateNumber(num);
+  for (const num of numbers) {
+    if (operation === "ADD") {
+      sum += validateNumber(num);
+    } else {
+      sum -= validateNumber(num);
+    }
   }
+
   resultHandler(sum);
 };
 
-
 //Arguments example, an alternative to rest operator <<< rest is recommended
-const substracUp = function(){
-  let sum = 0;
-  for (const num of arguments){ // don't use that
-    sum -= num;
-  }
-  return sum;
-}
+// const substracUp = function(resultHandler, ...numbers){
+//   let sum = 0;
+//   for (const num of numbers){
+//     sum -= num;
+//   }
+//   resultHandler(sum);
+// }
 
-const showResult = (result) => {
-  alert('The result after adding all numbers is' + result);
-}
+const showResult = (messageText, result) => {
+  alert(messageText + " " + result);
+};
 
-sumUp(showResult, 1, 5, "asda", -3, 6, 10);
-sumUp(showResult, 1, 5, 10, -3, 6, 10, 25, 88);
-console.log(substracUp(1, 10, 15, 20));
+combine(
+  showResult.bind(this, "The result after adding all numbers is: "),
+  "ADD",
+  1,
+  5,
+  "asda",
+  -3,
+  6,
+  10
+);
+combine(
+  showResult.bind(this, "The result after adding all numbers is: "),
+  "ADD",
+  1,
+  5,
+  10,
+  -3,
+  6,
+  10,
+  25,
+  88
+);
+combine(
+  showResult.bind(this, "The result after subtracting all numbers is: "),
+  "SUBTRACT",
+  1,
+  10,
+  15,
+  20
+);
