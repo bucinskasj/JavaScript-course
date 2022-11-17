@@ -100,7 +100,8 @@ startGameBtn.addEventListener("click", () => {
 
 //Rest operator example
 //With a function within a function
-const sumUp = (a, b, ...numbers) => {
+//With a callback
+const sumUp = (resultHandler, ...numbers) => {
   const validateNumber = (number) => {
     return isNaN(number) ? 0 : number;
   }
@@ -109,7 +110,7 @@ const sumUp = (a, b, ...numbers) => {
   for (const num of numbers){
     sum += validateNumber(num);
   }
-  return sum;
+  resultHandler(sum);
 };
 
 
@@ -122,6 +123,10 @@ const substracUp = function(){
   return sum;
 }
 
-console.log(sumUp(1, 5, "asda", -3, 6, 10));
-console.log(sumUp(1, 5, 10, -3, 6, 10, 25, 88));
+const showResult = (result) => {
+  alert('The result after adding all numbers is' + result);
+}
+
+sumUp(showResult, 1, 5, "asda", -3, 6, 10);
+sumUp(showResult, 1, 5, 10, -3, 6, 10, 25, 88);
 console.log(substracUp(1, 10, 15, 20));
