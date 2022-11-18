@@ -1,28 +1,32 @@
-const movieList = document.getElementById('movie-list');
+const addMovieBtn = document.getElementById("add-movie-btn");
+const searchBtn = document.getElementById("search-bth");
 
-movieList.style['background-color'] = 'red';
-movieList.style.display = 'block';
+const movies = [];
 
-const userChosenKeyName = 'level';
+const addMovieHandler = () => {
+  const title = document.getElementById("title").value;
+  const extraName = document.getElementById("extra-name").value;
+  const extraValue = document.getElementById("extra-value").value;
 
-let person = {
-  'first name': 'Max',
-  age: 30,
-  hobbies: ['Sports', 'Cooking'],
-  [userChosenKeyName]: 'value',
-  greet: function(){
-    alert('Hi there!');
-  },
-  1.5: 'hello'
+  if (
+    title.trim() === "" ||
+    extraName.trim() === "" ||
+    extraValue.trim() === ""
+  ) {
+    return;
+  }
+
+  const newMovie = {
+    info: {
+      title,
+      [extraName]: extraValue
+    },
+    id: Math.random()
+  };
+
+  movies.push(newMovie);
+  console.log(newMovie);
 };
 
-delete person.age; //will detele attribute too
-// person.age = undefined; //better use null. Devs never assign undefined.
-// person.age = null;
-person.isAdmin = true;
 
-const keyName = 'first name';
-
-console.log(person[keyName]);
-console.log(person[1.5]);
-console.log(person);
+addMovieBtn.addEventListener('click', addMovieHandler);
