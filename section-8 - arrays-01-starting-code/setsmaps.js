@@ -47,6 +47,13 @@ const personas = new WeakSet();
 personas.add(persona);
 
 //.... some operations
-persona = null;
+// persona = null;
 
 console.log(personas);
+
+const personaData = new WeakMap();
+personaData.set(persona, 'Extra info!');
+
+persona = null;
+
+console.log(persona);
