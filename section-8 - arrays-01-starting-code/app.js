@@ -37,3 +37,11 @@ console.log(poppedValue, shiftedValue);
 hobbies[1] = 'Sleeping';
 hobbies[5] = 'Reading'; // rarely used
 console.log(hobbies, hobbies[4]);
+
+
+hobbies.splice(1, 0, 'Good Food', 'Coding');
+console.log(hobbies);
+
+const removedElements = hobbies.splice(-1, 1);
+console.log(hobbies);
+console.log(removedElements);
