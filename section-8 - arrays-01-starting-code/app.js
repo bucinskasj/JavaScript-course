@@ -14,3 +14,15 @@ console.log(listItems);
 
 const arrayListItems = Array.from(listItems);
 console.log(arrayListItems);
+
+const hobbies = ['Cooking', 'Sports'];
+const personalData = [30, 'Max', {modeDetail: []}];
+console.log(personalData[1]);
+
+const analyticsData = [[1, 1.6], [4, 5, 60]];
+
+for (const data of analyticsData){
+  for (const dataPoint of data){
+    console.log(dataPoint);
+  }
+}
