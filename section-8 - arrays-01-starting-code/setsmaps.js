@@ -41,3 +41,12 @@ for (const value of personData.values()) {
 
 //Shows number of items in the map
 console.log(personData.size);
+
+let persona = {name: 'Max'};
+const personas = new WeakSet();
+personas.add(persona);
+
+//.... some operations
+persona = null;
+
+console.log(personas);
