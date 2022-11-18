@@ -1,5 +1,5 @@
-const numbers = [1, 2, 3];
-console.log(numbers)
+// const numbers = [1, 2, 3];
+// console.log(numbers)
 
 // Limits the length
 // const moreNumbers = Array(5); // new is not needed // new Array(5, 2) will actually create an array with 5 and 2 in it
@@ -26,22 +26,29 @@ console.log(numbers)
 //   }
 // }
 
-const hobbies = ['Sports', 'Cooking'];
-hobbies.push('Reading');
-hobbies.unshift('Coding');
-const poppedValue = hobbies.pop();
-const shiftedValue = hobbies.shift();
-console.log(hobbies);
-console.log(poppedValue, shiftedValue);
+// const hobbies = ['Sports', 'Cooking'];
+// hobbies.push('Reading');
+// hobbies.unshift('Coding');
+// const poppedValue = hobbies.pop();
+// const shiftedValue = hobbies.shift();
+// console.log(hobbies);
+// console.log(poppedValue, shiftedValue);
 
-hobbies[1] = 'Sleeping';
-hobbies[5] = 'Reading'; // rarely used
-console.log(hobbies, hobbies[4]);
+// hobbies[1] = 'Sleeping';
+// hobbies[5] = 'Reading'; // rarely used
+// console.log(hobbies, hobbies[4]);
 
 
-hobbies.splice(1, 0, 'Good Food', 'Coding');
-console.log(hobbies);
+// hobbies.splice(1, 0, 'Good Food', 'Coding');
+// console.log(hobbies);
 
-const removedElements = hobbies.splice(-1, 1);
-console.log(hobbies);
-console.log(removedElements);
+// const removedElements = hobbies.splice(-1, 1); // Negative indexes are allowed
+// console.log(hobbies);
+// console.log(removedElements);
+
+const testResults = [1, 5.3, 1.5, 10.99, -5, 10];
+const storedResults = testResults.slice(2);
+
+testResults.push(5.91);
+
+console.log(storedResults, testResults);
