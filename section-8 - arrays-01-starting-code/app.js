@@ -9,20 +9,31 @@ console.log(numbers)
 // const yetMoreNumbers = Array.of(1, 2);
 // console.log(yetMoreNumbers);
 
-const listItems = document.querySelectorAll('li')
-console.log(listItems);
+// const listItems = document.querySelectorAll('li')
+// console.log(listItems);
 
-const arrayListItems = Array.from(listItems);
-console.log(arrayListItems);
+// const arrayListItems = Array.from(listItems);
+// console.log(arrayListItems);
 
-const hobbies = ['Cooking', 'Sports'];
-const personalData = [30, 'Max', {modeDetail: []}];
-console.log(personalData[1]);
+// const personalData = [30, 'Max', {modeDetail: []}];
+// console.log(personalData[1]);
 
-const analyticsData = [[1, 1.6], [4, 5, 60]];
+// const analyticsData = [[1, 1.6], [4, 5, 60]];
 
-for (const data of analyticsData){
-  for (const dataPoint of data){
-    console.log(dataPoint);
-  }
-}
+// for (const data of analyticsData){
+//   for (const dataPoint of data){
+//     console.log(dataPoint);
+//   }
+// }
+
+const hobbies = ['Sports', 'Cooking'];
+hobbies.push('Reading');
+hobbies.unshift('Coding');
+const poppedValue = hobbies.pop();
+const shiftedValue = hobbies.shift();
+console.log(hobbies);
+console.log(poppedValue, shiftedValue);
+
+hobbies[1] = 'Sleeping';
+hobbies[5] = 'Reading'; // rarely used
+console.log(hobbies, hobbies[4]);
