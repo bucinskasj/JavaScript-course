@@ -42,6 +42,8 @@ for (const value of personData.values()) {
 //Shows number of items in the map
 console.log(personData.size);
 
+
+//Weak set example
 let persona = {name: 'Max'};
 const personas = new WeakSet();
 personas.add(persona);
@@ -51,6 +53,8 @@ personas.add(persona);
 
 console.log(personas);
 
+
+//Weak map example
 const personaData = new WeakMap();
 personaData.set(persona, 'Extra info!');
 
