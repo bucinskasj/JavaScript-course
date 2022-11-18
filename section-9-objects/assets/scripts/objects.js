@@ -9,7 +9,8 @@ let person = {
   hobbies: ['Sports', 'Cooking'],
   greet: function(){
     alert('Hi there!');
-  }
+  },
+  1.5: 'hello'
 };
 
 delete person.age; //will detele attribute too
@@ -18,3 +19,5 @@ delete person.age; //will detele attribute too
 person.isAdmin = true;
 
 console.log(person['first name']);
+console.log(person[1.5]);
+console.log(person);
