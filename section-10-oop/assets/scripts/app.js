@@ -12,10 +12,31 @@ class Product {
   }
 }
 
-// console.log(new Product());
+class ProductItem {
+  constructor(product) {
+    this.product = product;
+  }
 
-const productList = {
-  products: [
+  render(){
+    const prodEl = document.createElement("li");
+    prodEl.className = "product-item";
+    prodEl.innerHTML = `
+      <div>
+      <img src="${this.product.imageUrl}" alt="${this.product.title}">
+      <div class="product-item__content">
+        <h2>${this.product.title}</h2>
+        <h3>\$${this.product.price}</h3>
+        <p>${this.product.description}</p>
+        <button>Add to cart</button>
+      </div>
+      </div>
+    `;
+    return prodEl;
+  }
+}
+
+class ProductList {
+  products = [
     new Product(
       "A Pillow",
       "https://unitedpillow.com/images/companies/2/pillow-thumb.jpg?1564370699038",
@@ -28,29 +49,22 @@ const productList = {
       "Perfect carpet for your wall",
       89.99
     )
-  ],
+  ];
+
+  constructor() {}
+
   render() {
     const renderHook = document.getElementById("app");
     const prodList = document.createElement("ul");
     prodList.className = "product-list";
     for (const prod of this.products) {
-      const prodEl = document.createElement("li");
-      prodEl.className = "product-item";
-      prodEl.innerHTML = `
-        <div>
-        <img src="${prod.imageUrl}" alt="${prod.title}">
-        <div class="product-item__content">
-          <h2>${prod.title}</h2>
-          <h3>\$${prod.price}</h3>
-          <p>${prod.description}</p>
-          <button>Add to cart</button>
-        </div>
-        </div>
-      `;
+      const productItem = new ProductItem(prod);
+      const prodEl = productItem.render();
       prodList.append(prodEl);
     }
     renderHook.append(prodList);
-  },
-};
+  }
+}
 
+const productList = new ProductList();
 productList.render();
