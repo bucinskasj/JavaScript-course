@@ -75,3 +75,22 @@ const searchMovieHandler = function() {
 
 addMovieBtn.addEventListener("click", addMovieHandler);
 searchBtn.addEventListener("click", searchMovieHandler);
+
+
+//More on this.
+
+
+//Arrow function is bound to the element
+// const members = {teamName: 'Blue rockerts', people: ['Max', 'Manuel'], getTeamMembers () {
+//   this.people.forEach( p => {
+//       console.log(p + ' - ' + this.teamName);
+//   });
+// }};
+
+//Regular is bound to forEach, which is basically the browser
+
+// const members2 = {teamName: 'Blue rockerts', people: ['Max', 'Manuel'], getTeamMembers () {
+//   this.people.forEach(function(p) {
+//       console.log(p + ' - ' + this.teamName);
+//   });
+// }};
