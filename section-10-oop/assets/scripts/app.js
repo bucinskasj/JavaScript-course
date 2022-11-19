@@ -1,6 +1,16 @@
+class Product {
+ title = 'DEFAULT';
+ imageUrl;
+ description;
+ price;
+}
+
+console.log(new Product());
+
 
 const productList = {
   products: [
+    // new Product()
     {
       title:'A Pillow',
       imageUrl: 'https://unitedpillow.com/images/companies/2/pillow-thumb.jpg?1564370699038',
