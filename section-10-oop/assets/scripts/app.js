@@ -20,9 +20,11 @@ class ElementAttritube {
 }
 
 class Component {
-  constructor(renderHookId) {
+  constructor(renderHookId, shouldRender = true) {
     this.hookId = renderHookId;
-    this.render();
+    if (shouldRender) {
+      this.render();
+    }
   }
 
   render() {}
@@ -82,8 +84,9 @@ class ShoppingCart extends Component {
 
 class ProductItem extends Component {
   constructor(product, renderHookId) {
-    super(renderHookId);
+    super(renderHookId, false);
     this.product = product;
+    this.render();
   }
 
   addToCart() {
@@ -109,31 +112,43 @@ class ProductItem extends Component {
 }
 
 class ProductList extends Component {
-  products = [
-    new Product(
-      "A Pillow",
-      "https://unitedpillow.com/images/companies/2/pillow-thumb.jpg?1564370699038",
-      "A soft pillow!",
-      19.99
-    ),
-    new Product(
-      "A Carpet on the wall",
-      "https://mf.b37mrtl.ru/rbthmedia/images/web/in-rbth/images/2014-01/big/9.01/2860348_468.jpg",
-      "Perfect carpet for your wall",
-      89.99
-    ),
-  ];
+  products = [];
 
   constructor(renderHookId) {
     super(renderHookId);
+    this.fetchProducts();
+  }
+
+  fetchProducts() {
+    this.products = [
+      new Product(
+        "A Pillow",
+        "https://unitedpillow.com/images/companies/2/pillow-thumb.jpg?1564370699038",
+        "A soft pillow!",
+        19.99
+      ),
+      new Product(
+        "A Carpet on the wall",
+        "https://mf.b37mrtl.ru/rbthmedia/images/web/in-rbth/images/2014-01/big/9.01/2860348_468.jpg",
+        "Perfect carpet for your wall",
+        89.99
+      ),
+    ];
+    this.renderProducts();
+  }
+
+  renderProducts() {
+    for (const prod of this.products) {
+      new ProductItem(prod, "prod-list");
+    }
   }
 
   render() {
     const prodList = this.createRootElement("ul", "product-list", [
       new ElementAttritube("id", "prod-list"),
     ]);
-    for (const prod of this.products) {
-      new ProductItem(prod, "prod-list");
+    if (this.products && this.products.length >0) {
+      this.renderProducts();
     }
   }
 }
