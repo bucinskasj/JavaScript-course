@@ -13,6 +13,7 @@
 //Old way of writing constructor function
 
 function Person () {
+  this = {};
   this.age = 30;
   this.name = 'Max';
   this.greet = function() {
@@ -20,6 +21,7 @@ function Person () {
       'Hi, I am' + this.name + ' and I am ' + this.age + ' years old.'
     );
   };
+  return this;
 }
 
 const person = new Person();

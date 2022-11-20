@@ -13,3 +13,6 @@
 
 ## Operators
 [MDN - Operator precedence](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
+
+## To do
+* Classes: learn more about classes and constructor functions
