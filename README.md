@@ -16,3 +16,7 @@
 
 ## To do
 * Classes: learn more about classes and constructor functions
+
+## Terminal commands
+* `export PROMPT=" $";clear;` clears the garbled user name
+* * To Do - figure out how to run it autoamtically in VS Code
