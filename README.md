@@ -16,6 +16,7 @@
 
 ## To do
 * Classes: learn more about classes and constructor functions
+* Learn static methods
 
 ## Terminal commands
 * `export PROMPT=" $";clear;` clears the garbled user name
