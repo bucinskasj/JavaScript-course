@@ -1,4 +1,4 @@
-const buttons = document.querySelectorAll('button');
+const button = document.querySelector('button');
 
 // button.onclick = function () {};
 
@@ -34,5 +34,19 @@ const form = document.querySelector('form');
 
 form.addEventListener('submit', event => {
   event.preventDefault();
+  console.log(event);
+});
+
+const div = document.querySelector('div')
+
+div.addEventListener('mouseenter', event => {
+  console.log('Clicked DIV');
+  console.log(event);
+});
+
+button.addEventListener('mouseenter', event => {
+  event.stopPropagation();
+  // event.stopImmediatePropagation(); // prevents event propagation on the button element
+  console.log('Clicked BUTTON');
   console.log(event);
 });
