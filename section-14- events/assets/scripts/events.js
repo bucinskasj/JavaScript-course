@@ -39,16 +39,17 @@ form.addEventListener('submit', event => {
 
 const div = document.querySelector('div')
 
-div.addEventListener('mouseenter', event => {
+div.addEventListener('click', event => {
   console.log('Clicked DIV');
   console.log(event);
 });
 
-button.addEventListener('mouseenter', event => {
+button.addEventListener('click', function(event) {
   event.stopPropagation();
   // event.stopImmediatePropagation(); // prevents event propagation on the button element
   console.log('Clicked BUTTON');
   console.log(event);
+  console.log(this);
 });
 
 
@@ -61,8 +62,11 @@ const list = document.querySelector('ul');
 //   });
 // });
 
-list.addEventListener('click', event => {
+list.addEventListener('click', function(event) {
   // console.log(event.currentTarget);
   // event.target.classList.toggle('highlight');
   event.target.closest('li').classList.toggle('highlight');
+  // form.submit();
+  button.click();
+  console.log(this);
  });
