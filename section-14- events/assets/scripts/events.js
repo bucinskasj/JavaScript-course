@@ -22,10 +22,17 @@ const boundFn = onButtonClick.bind(this);
 //   button.removeEventListener('click', onButtonClick);
 // }, 2000);
 
-buttons.forEach(btn => {
-  btn.addEventListener('mouseenter', onButtonClick);
-})
+// buttons.forEach(btn => {
+//   btn.addEventListener('mouseenter', onButtonClick);
+// })
 
-window.addEventListener('scroll', event => {
+// window.addEventListener('scroll', event => {
+//   console.log(event);
+// });
+
+const form = document.querySelector('form');
+
+form.addEventListener('submit', event => {
+  event.preventDefault();
   console.log(event);
 });
