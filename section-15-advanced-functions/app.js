@@ -1,7 +1,9 @@
-// Pure function
+// Pure functions are predictable, no side effects
 function add(num1, num2) {
   return num1 + num2;
 }
+
+// function sendDataToServer() {} //naming is important
 
 console.log(add(1, 5)); // 6
 console.log(add(12, 15)) // 27
@@ -24,12 +26,33 @@ function addMoreNumbers(num1, num2) {
 
 console.log(addMoreNumbers(1, 5));
 
-
+// And another impure function
 const hobbies = ['Sports', 'Cooking'];
 
 function printHobbies(h) {
-  h.push('NEW HOBBY');
+  h.push('NEW HOBBY'); // side effect
   console.log(h);
 }
 
 printHobbies(hobbies);
+
+// Factory functions - function that produces another function
+
+let multiplier = 1.1;
+
+function createTaxCalculator(tax) {
+  function calculateTax(amount) {
+    console.log(multiplier);
+    return amount * tax * multiplier;
+  }
+
+  return calculateTax;
+};
+
+const calculateVatAmount = createTaxCalculator(0.19);
+const calculateIncomeTaxAmount = createTaxCalculator(0.25);
+
+multiplier = 1.2;
+
+console.log(calculateVatAmount(100));
+console.log(calculateVatAmount(200));
