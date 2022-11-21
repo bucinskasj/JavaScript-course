@@ -52,7 +52,22 @@ function createTaxCalculator(tax) {
 const calculateVatAmount = createTaxCalculator(0.19);
 const calculateIncomeTaxAmount = createTaxCalculator(0.25);
 
-multiplier = 1.2;
+// multiplier = 1.2;
 
 console.log(calculateVatAmount(100));
 console.log(calculateVatAmount(200));
+
+// Closures
+
+let userName = 'Max';
+
+function greetUser() {
+  // let name = 'Anna';
+  console.log('Hi ' + name)
+};
+
+let name = 'Maximilian';
+
+userName = 'Manuel';
+
+greetUser();
