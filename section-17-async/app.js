@@ -23,28 +23,28 @@ const setTimer = duration => {
 };
 
 
-function trackUserHandler() {
-  let positionData;
-  getPosition()
-  .catch()
-    .then( posData => {
-      positionData = posData;
-      return setTimer(2000);
-    })
-    .catch(err => {
-      console.log(err);
-      return 'on we go...';
-    })
-    .then(data => {
-      console.log(data, positionData);
-    });
-  setTimer(1000).then(() => {
-    console.log('Timer done!')
-  })
-  console.log('Getting position...');
-}
+// function trackUserHandler() {
+//   let positionData;
+//   getPosition()
+//   .catch()
+//     .then( posData => {
+//       positionData = posData;
+//       return setTimer(2000);
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       return 'on we go...';
+//     })
+//     .then(data => {
+//       console.log(data, positionData);
+//     });
+//   // setTimer(1000).then(() => {
+//   //   console.log('Timer done!')
+//   // })
+//   // console.log('Getting position...');
+// }
 
-button.addEventListener('click', trackUserHandler);
+// button.addEventListener('click', trackUserHandler);
 
 // let result = 0;
 // for (let i = 0; i < 100000000; i++) {
@@ -52,3 +52,27 @@ button.addEventListener('click', trackUserHandler);
 // };
 
 // console.log(result);
+
+async function trackUserHandler() {
+  // let positionData;
+  const posData = await getPosition();
+  const timerData = await setTimer(2000);
+  console.log(timerData, posData);
+    // .then( posData => {
+    //   positionData = posData;
+    //   return setTimer(2000);
+    // })
+    // .catch(err => {
+    //   console.log(err);
+    //   return 'on we go...';
+    // })
+    // .then(data => {
+    //   console.log(data, positionData);
+    // });
+  // setTimer(1000).then(() => {
+  //   console.log('Timer done!')
+  // })
+  // console.log('Getting position...');
+}
+
+button.addEventListener('click', trackUserHandler);
