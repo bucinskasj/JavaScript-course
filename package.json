@@ -1,0 +1,19 @@
+{
+  "name": "javascript-course",
+  "version": "1.0.0",
+  "description": "Course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bucinskasj/JavaScript-course.git"
+  },
+  "author": "Jonas Bucinskas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bucinskasj/JavaScript-course/issues"
+  },
+  "homepage": "https://github.com/bucinskasj/JavaScript-course#readme"
+}
