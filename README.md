@@ -17,6 +17,7 @@
 ## To do
 * Classes: learn more about classes and constructor functions
 * Learn static methods
+* Promises https://developers.google.com/web/fundamentals/primers/promises
 
 ## Terminal commands
 * `export PROMPT=" $";clear;` clears the garbled user name
