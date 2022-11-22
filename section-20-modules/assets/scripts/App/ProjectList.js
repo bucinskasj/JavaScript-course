@@ -1,6 +1,10 @@
 import { ProjectItem as PrjItem } from "./ProjectItem.js";
 import * as DOMH from "../Utility/DOMHelper.js";
 
+
+// console.log(DEFAULT_VALUE);
+
+
 export class ProjectList {
   projects = [];
 
@@ -17,6 +21,7 @@ export class ProjectList {
   }
 
   connectDroppable() {
+    console.log(globalThis);
     const list = document.querySelector(`#${this.type}-projects ul`);
 
     list.addEventListener('dragenter', event => {
