@@ -18,6 +18,7 @@
 * Classes: learn more about classes and constructor functions
 * Learn static methods
 * Promises https://developers.google.com/web/fundamentals/primers/promises
+* Check the support for event listeners on http request load
 
 ## Terminal commands
 * `export PROMPT=" $";clear;` clears the garbled user name
