@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/bucinskasj/JavaScript-course/issues"
   },
-  "homepage": "https://github.com/bucinskasj/JavaScript-course#readme"
+  "homepage": "https://github.com/bucinskasj/JavaScript-course#readme",
+  "devDependencies": {
+    "eslint": "^8.28.0"
+  }
 }
