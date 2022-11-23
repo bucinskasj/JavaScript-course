@@ -1,4 +1,5 @@
 const path = require('path');
+const CleanPlugin = require('clean-webpack-plugin');
 
 module.exports= {
   mode: 'development',
@@ -13,5 +14,8 @@ module.exports= {
     static: {
       directory: path.join(__dirname, './section-20-modules')
     }
-  }
+  },
+  plugins: [
+    new CleanPlugin.CleanWebpackPlugin()
+  ]
 };
