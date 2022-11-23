@@ -19,6 +19,7 @@
 * Learn static methods
 * Promises https://developers.google.com/web/fundamentals/primers/promises
 * Check the support for event listeners on http request load
+* Webpack. Study it
 
 ## Terminal commands
 * `export PROMPT=" $";clear;` clears the garbled user name
