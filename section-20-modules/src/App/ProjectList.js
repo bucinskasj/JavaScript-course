@@ -10,7 +10,7 @@ export class ProjectList {
 
   constructor(type) {
     this.type = type;
-    this.project = [];
+    this.projects = [];
     const prjItems = document.querySelectorAll(`#${type}-projects li`);
     for (const prjItem of prjItems) {
       this.projects.push(
@@ -19,10 +19,10 @@ export class ProjectList {
     }
     console.log(this.projects);
     this.connectDroppable();
-  }
+  };
 
   connectDroppable() {
-    console.log(globalThis);
+    // console.log(globalThis);
     const list = document.querySelector(`#${this.type}-projects ul`);
 
     list.addEventListener('dragenter', event => {

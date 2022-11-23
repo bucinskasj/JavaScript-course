@@ -2,7 +2,7 @@ import {ProjectList} from './App/ProjectList';
 
 // window.DEFAULT_VALUE = 'Max'; //Last resort to share things between modules
 
-globalThis.DEFAULT_VALUE = 'Max';
+// globalThis.DEFAULT_VALUE = 'Max';
 
 class App {
   static init() {
