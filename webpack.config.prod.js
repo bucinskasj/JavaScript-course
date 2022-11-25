@@ -1,21 +1,36 @@
 const path = require('path');
 const CleanPlugin = require('clean-webpack-plugin');
 
-module.exports= {
+module.exports = {
   mode: 'production',
-  entry: './section-20-modules/src/app.js',
+  entry: './src/app.js',
   output: {
     filename: '[contenthash].js',
-    path: path.resolve(__dirname, 'section-20-modules', 'assets', 'scripts'),
+    path: path.resolve(__dirname, 'assets', 'scripts'),
     publicPath: 'assets/scripts/'
   },
   devtool: 'cheap-source-map',
-  devServer: {
-    static: {
-      directory: path.join(__dirname, './section-20-modules')
-    }
+  // devServer: {
+  //   contentBase: './'
+  // }
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              [
+                '@babel/preset-env',
+                { useBuiltIns: 'usage', corejs: { version: 3 } }
+              ]
+            ]
+          }
+        }
+      }
+    ]
   },
-  plugins: [
-    new CleanPlugin.CleanWebpackPlugin()
-  ]
+  plugins: [new CleanPlugin.CleanWebpackPlugin()]
 };
